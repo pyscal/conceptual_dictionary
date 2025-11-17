@@ -1,12 +1,19 @@
 import yaml
 from typing import Any, Dict
 import numpy as np
+import string
+import random
 
 class KnowledgeDict(dict):
     def __init__(self, *args, **kwargs):
         data = {'computational_sample': [], 'workflow': []}
         super().__init__(data, *args, **kwargs)
 
+    def generate_id(self, length=7):
+        """Generate a random alphanumeric ID of given length."""
+        chars = string.ascii_letters + string.digits  # A–Z, a–z, 0–9
+        return ''.join(random.choices(chars, k=length))
+        
     @staticmethod
     def _clean_data(obj: Any) -> Any:
         if isinstance(obj, dict):
