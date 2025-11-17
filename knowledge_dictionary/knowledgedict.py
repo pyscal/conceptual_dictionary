@@ -1,4 +1,5 @@
 import yaml
+import json
 from typing import Any, Dict
 import numpy as np
 import string
@@ -11,7 +12,7 @@ class KnowledgeDict(dict):
 
     def generate_id(self, length=7):
         """Generate a random alphanumeric ID of given length."""
-        chars = string.ascii_letters + string.digits  # A–Z, a–z, 0–9
+        chars = string.ascii_letters + string.digits
         return ''.join(random.choices(chars, k=length))
         
     @staticmethod
@@ -33,6 +34,9 @@ class KnowledgeDict(dict):
         else:
             return str(obj)
 
+    # --------------------
+    # YAML I/O
+    # --------------------
     def to_yaml(self, filepath: str, sort_keys: bool = False) -> None:
         clean_dict = KnowledgeDict._clean_data(dict(self))
         with open(filepath, 'w') as f:
@@ -42,6 +46,22 @@ class KnowledgeDict(dict):
     def from_yaml(cls, filepath: str) -> "KnowledgeDict":
         with open(filepath, 'r') as f:
             data = yaml.safe_load(f)
+        kg = cls()
+        kg.update(data)
+        return kg
+
+    # --------------------
+    # JSON I/O
+    # --------------------
+    def to_json(self, filepath: str, sort_keys: bool = False, indent: int = 2) -> None:
+        clean_dict = KnowledgeDict._clean_data(dict(self))
+        with open(filepath, 'w') as f:
+            json.dump(clean_dict, f, sort_keys=sort_keys, indent=indent, ensure_ascii=False)
+
+    @classmethod
+    def from_json(cls, filepath: str) -> "KnowledgeDict":
+        with open(filepath, 'r') as f:
+            data = json.load(f)
         kg = cls()
         kg.update(data)
         return kg
