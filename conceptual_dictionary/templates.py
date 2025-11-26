@@ -8,12 +8,12 @@ sample_template = {
             "unit_cell": {
                 "bravais_lattice": None,
                 "lattice_parameter": None,
-                "angle": []
-            }
-        }
+                "angle": [],
+            },
+        },
     },
     "simulation_cell": {
-        "volume": {'value': None},
+        "volume": {"value": None},
         "number_of_atoms": None,
         "length": [],
         "vector": [],
@@ -22,17 +22,17 @@ sample_template = {
         "grain_size": None,
         "number_of_grains": 0,
     },
-    'atom_attribute': {
-        'position': None,
-        'species': None,
-    }
+    "atom_attribute": {
+        "position": None,
+        "species": None,
+    },
 }
 
 property_template = {
     "basename": None,
     "value": None,
     "unit": None,
-    "associate_to_sample": []
+    "associate_to_sample": [],
 }
 
 workflow_template = {
@@ -45,8 +45,8 @@ workflow_template = {
     "calculated_property": [],
     "degrees_of_freedom": [],
     "interatomic_potential": {
-          "potential_type": None,
-          "uri": None,
+        "potential_type": None,
+        "uri": None,
     },
     "software": {
         "uri": None,

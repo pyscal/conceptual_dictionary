@@ -1,4 +1,4 @@
-# knowledge_dictionary
+# conceptual_dictionary
 
 A Python dictionary template for storing serializable metadata.
 
@@ -17,51 +17,51 @@ pip install -e .
 Import and use predefined dictionary templates:
 
 ```python
-from knowledge_dictionary import KNOWLEDGE_TEMPLATE, MINIMAL_TEMPLATE, EXTENDED_TEMPLATE
+from conceptual_dictionary.templates import sample_template, property_template, workflow_template
 
 # Use a template directly
-my_data = KNOWLEDGE_TEMPLATE.copy()
-my_data['metadata']['author'] = 'John Doe'
-my_data['content']['title'] = 'My Knowledge'
+my_data = sample_template.copy()
+my_data['material']['element_ratio'] = {'Fe': 0.7, 'C': 0.3}
+my_data['simulation_cell']['volume']['value'] = 1000
 ```
 
-### Using KnowledgeDict Class
+### Using ConceptualDict Class
 
-Work with knowledge dictionaries using the KnowledgeDict class:
+Work with conceptual dictionaries using the ConceptualDict class:
 
 ```python
-from knowledge_dictionary import KnowledgeDict
+from conceptual_dictionary.conceptualdict import ConceptualDict
 
-# Create a new knowledge dictionary
-kd = KnowledgeDict(template="knowledge")
+# Create a new conceptual dictionary
+cd = ConceptualDict()
 
 # Set values using dot notation
-kd.set("metadata.author", "John Doe")
-kd.set("content.title", "My Knowledge")
-kd.set("content.description", "A collection of important information")
+cd.set("material.element_ratio.Fe", 0.7)
+cd.set("material.element_ratio.C", 0.3)
+cd.set("simulation_cell.volume.value", 1000)
 
 # Get values
-author = kd.get("metadata.author")
-title = kd.get("content.title")
+fe_ratio = cd.get("material.element_ratio.Fe")
+volume = cd.get("simulation_cell.volume.value")
 
 # Convert to standard dictionary
-data = kd.to_dict()
+data = cd.to_dict()
 
 # Serialize to JSON
-json_str = kd.to_json(indent=2)
+json_str = cd.to_json(indent=2)
 
 # Save to file
-kd.save("my_knowledge.json")
+cd.save("my_conceptual.json")
 
 # Load from file
-kd_loaded = KnowledgeDict.load("my_knowledge.json")
+cd_loaded = ConceptualDict.from_json("my_conceptual.json")
 ```
 
 ## Available Templates
 
-- **KNOWLEDGE_TEMPLATE**: Standard template with metadata, content, and schema sections
-- **MINIMAL_TEMPLATE**: Minimal template with just title, description, and data
-- **EXTENDED_TEMPLATE**: Extended template with additional provenance tracking
+- **sample_template**: Standard template with metadata, content, and schema sections
+- **property_template**: Template for defining properties with values and units
+- **workflow_template**: Template for describing workflows, including algorithms and methods
 
 ## License
 

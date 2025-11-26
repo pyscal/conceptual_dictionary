@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "knowledge-dictionary"
+name = "conceptual-dictionary"
 version = "0.1.0"
 description = "A Python dictionary template for storing serializable metadata"
 readme = "README.md"
@@ -25,7 +25,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
-keywords = ["dictionary", "metadata", "serialization", "knowledge"]
+keywords = ["dictionary", "metadata", "serialization", "conceptual"]
 
 dependencies = [
     "numpy",
@@ -33,8 +33,8 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/pyscal/knowledge_dictionary"
-"Bug Tracker" = "https://github.com/pyscal/knowledge_dictionary/issues"
+"Homepage" = "https://github.com/pyscal/conceptual_dictionary"
+"Bug Tracker" = "https://github.com/pyscal/conceptual_dictionary/issues"
 
 [tool.setuptools]
-packages = ["knowledge_dictionary"]
+packages = ["conceptual_dictionary"]
