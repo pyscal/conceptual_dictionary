@@ -60,3 +60,17 @@ workflow_template = {
     },
     "thermodynamic_ensemble": None,
 }
+
+# Operation template for atomic-scale transformations
+# Contains all possible fields for all operation types
+operation_template = {
+    "method": None,  # Required: DeleteAtom, SubstituteAtom, AddAtom, Rotate, Translate, Shear
+    "input_sample": None,  # Required
+    "output_sample": None,  # Required
+    # Optional fields (used by specific operations):
+    "rotation_matrix": None,  # For Rotate: 3x3 matrix, e.g., [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    "translation_vector": None,  # For Translate: 3D vector, e.g., [1.5, 2.0, 0.5]
+    "shear_vector": None,  # For Shear: 3D vector, e.g., [0.1, 0, 0]
+    "normal_vector": None,  # For Shear (optional): 3D vector, e.g., [1, 1, 1]
+    "distance": None,  # For Shear (optional): float
+}

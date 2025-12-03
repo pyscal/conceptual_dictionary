@@ -8,7 +8,7 @@ import random
 
 class ConceptualDict(dict):
     def __init__(self, *args, **kwargs):
-        data = {"computational_sample": [], "workflow": []}
+        data = {"computational_sample": [], "workflow": [], "operation": []}
         super().__init__(data, *args, **kwargs)
 
     def generate_id(self, length=7):
