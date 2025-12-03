@@ -26,6 +26,7 @@ sample_template = {
         "position": None,
         "species": None,
     },
+    "calculated_property": [],
 }
 
 property_template = {
